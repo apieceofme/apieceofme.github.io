@@ -2416,3 +2416,455 @@ body.light-mode .search-empty {
     }
 
 }
+
+/* =========================================================
+   MUSEUM ROOMS / ARTICLE READER
+   ========================================================= */
+
+.museum-overlay-open {
+    overflow: hidden;
+}
+
+#museumRoomOverlay,
+#museumArticle {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .3s ease;
+}
+
+#museumRoomOverlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.room-overlay-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(10, 10, 9, .84);
+    backdrop-filter: blur(10px);
+}
+
+.room-overlay-panel {
+    position: relative;
+    width: min(1050px, calc(100% - 32px));
+    height: min(88vh, 850px);
+    margin: 6vh auto 0;
+
+    overflow-y: auto;
+
+    background: #171716;
+    color: #f2eee5;
+
+    border: 1px solid rgba(255,255,255,.16);
+
+    transform: translateY(30px);
+    transition: transform .4s ease;
+
+    box-shadow: 0 40px 120px rgba(0,0,0,.5);
+}
+
+#museumRoomOverlay.active .room-overlay-panel {
+    transform: translateY(0);
+}
+
+.room-overlay-close,
+.article-reader-close {
+    position: absolute;
+    top: 22px;
+    right: 25px;
+
+    border: 0;
+    background: transparent;
+
+    color: inherit;
+
+    font-family: "DM Mono", monospace;
+    font-size: 10px;
+    letter-spacing: .14em;
+
+    cursor: pointer;
+
+    z-index: 5;
+}
+
+.room-overlay-inner {
+    padding: 80px 70px 70px;
+}
+
+.room-overlay-label {
+    font-family: "DM Mono", monospace;
+    font-size: 10px;
+    letter-spacing: .16em;
+    opacity: .5;
+    margin-bottom: 25px;
+}
+
+.room-overlay-inner h2 {
+    max-width: 850px;
+    margin: 0;
+
+    font-family: "Playfair Display", serif;
+    font-weight: 500;
+
+    font-size: clamp(48px, 7vw, 92px);
+    line-height: .95;
+}
+
+.room-overlay-inner h2 em {
+    font-weight: 500;
+}
+
+.room-overlay-intro {
+    max-width: 620px;
+    margin: 35px 0 65px;
+
+    font-size: 17px;
+    line-height: 1.7;
+    opacity: .65;
+}
+
+.room-overlay-items {
+    border-top: 1px solid rgba(255,255,255,.16);
+}
+
+.room-content-item {
+    position: relative;
+
+    display: grid;
+    grid-template-columns: 100px 1fr auto;
+    gap: 30px;
+
+    padding: 30px 0;
+
+    border-bottom: 1px solid rgba(255,255,255,.12);
+
+    transition: padding .25s ease;
+}
+
+.room-content-item:hover {
+    padding-left: 12px;
+}
+
+.room-item-number {
+    font-family: "DM Mono", monospace;
+    font-size: 10px;
+    opacity: .4;
+    padding-top: 5px;
+}
+
+.room-item-category {
+    display: block;
+
+    font-family: "DM Mono", monospace;
+    font-size: 9px;
+    letter-spacing: .14em;
+
+    opacity: .45;
+
+    margin-bottom: 12px;
+}
+
+.room-item-main h3 {
+    margin: 0 0 10px;
+
+    font-family: "Playfair Display", serif;
+    font-size: clamp(24px, 3vw, 38px);
+    font-weight: 500;
+    line-height: 1.05;
+}
+
+.room-item-main p {
+    max-width: 620px;
+    margin: 0;
+
+    font-size: 14px;
+    line-height: 1.6;
+    opacity: .58;
+}
+
+.room-item-arrow {
+    align-self: center;
+    font-size: 20px;
+    opacity: .5;
+}
+
+.room-item-open {
+    align-self: center;
+
+    border: 0;
+    background: transparent;
+
+    color: inherit;
+
+    font-family: "DM Mono", monospace;
+    font-size: 9px;
+    letter-spacing: .12em;
+
+    cursor: pointer;
+}
+
+.exhibit-large {
+    display: block;
+    padding: 45px 0;
+}
+
+
+/* =========================================================
+   ARTICLE
+   ========================================================= */
+
+#museumArticle {
+    background: #171716;
+    color: #f2eee5;
+
+    overflow-y: auto;
+
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.article-reader {
+    position: relative;
+    max-width: 1000px;
+    margin: auto;
+    padding: 70px 30px 100px;
+}
+
+.article-reader-top {
+    display: flex;
+    justify-content: space-between;
+
+    font-family: "DM Mono", monospace;
+    font-size: 9px;
+    letter-spacing: .14em;
+
+    opacity: .45;
+
+    padding-bottom: 25px;
+    border-bottom: 1px solid rgba(255,255,255,.14);
+}
+
+.article-body {
+    max-width: 720px;
+    margin: 90px auto 0;
+}
+
+.article-body h1 {
+    margin: 0 0 30px;
+
+    font-family: "Playfair Display", serif;
+    font-size: clamp(48px, 8vw, 90px);
+    font-weight: 500;
+    line-height: .95;
+}
+
+.article-deck {
+    font-size: 20px;
+    line-height: 1.6;
+    opacity: .65;
+}
+
+.article-rule {
+    margin: 55px 0;
+    border-top: 1px solid rgba(255,255,255,.15);
+}
+
+.article-body p {
+    margin: 0 0 28px;
+
+    font-size: 18px;
+    line-height: 1.85;
+    opacity: .78;
+}
+
+.article-body h2 {
+    margin: 60px 0 25px;
+
+    font-family: "Playfair Display", serif;
+    font-size: 38px;
+    font-weight: 500;
+}
+
+.article-body blockquote {
+    margin: 55px 0;
+    padding-left: 25px;
+
+    border-left: 2px solid rgba(255,255,255,.35);
+
+    font-family: "Playfair Display", serif;
+    font-size: 28px;
+    font-style: italic;
+    line-height: 1.4;
+}
+
+
+/* =========================================================
+   SEARCH RESULTS
+   ========================================================= */
+
+.museum-search-result {
+    position: relative;
+
+    display: block;
+    width: 100%;
+
+    padding: 25px 50px 25px 0;
+
+    text-align: left;
+
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid rgba(255,255,255,.13);
+
+    color: inherit;
+
+    cursor: pointer;
+}
+
+.museum-search-result span {
+    display: block;
+
+    font-family: "DM Mono", monospace;
+    font-size: 9px;
+    letter-spacing: .14em;
+
+    opacity: .45;
+    margin-bottom: 8px;
+}
+
+.museum-search-result strong {
+    display: block;
+
+    font-family: "Playfair Display", serif;
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.museum-search-result p {
+    margin: 7px 0 0;
+
+    font-size: 13px;
+    line-height: 1.5;
+
+    opacity: .55;
+}
+
+.museum-search-result i {
+    position: absolute;
+    right: 5px;
+    top: 40px;
+
+    font-style: normal;
+}
+
+.search-empty {
+    padding: 35px 0;
+}
+
+.search-empty span {
+    display: block;
+
+    font-family: "DM Mono", monospace;
+    font-size: 9px;
+    letter-spacing: .14em;
+
+    opacity: .45;
+
+    margin-bottom: 12px;
+}
+
+.search-empty strong {
+    font-family: "Playfair Display", serif;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+
+/* =========================================================
+   LIGHT MODE
+   ========================================================= */
+
+body.light-mode {
+    background: #eeeae0;
+    color: #171716;
+}
+
+body.light-mode .room-overlay-panel,
+body.light-mode #museumArticle {
+    background: #eeeae0;
+    color: #171716;
+}
+
+body.light-mode .room-overlay-backdrop {
+    background: rgba(238,234,224,.82);
+}
+
+body.light-mode .room-content-item,
+body.light-mode .room-overlay-items,
+body.light-mode .article-reader-top,
+body.light-mode .article-rule {
+    border-color: rgba(0,0,0,.15);
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .room-overlay-panel {
+        width: calc(100% - 16px);
+        height: calc(100vh - 20px);
+        margin: 10px auto;
+    }
+
+    .room-overlay-inner {
+        padding: 70px 25px 45px;
+    }
+
+    .room-overlay-inner h2 {
+        font-size: 48px;
+    }
+
+    .room-content-item {
+        grid-template-columns: 1fr auto;
+        gap: 15px;
+    }
+
+    .room-item-number {
+        display: none;
+    }
+
+    .room-item-main h3 {
+        font-size: 27px;
+    }
+
+    .room-item-main p {
+        font-size: 13px;
+    }
+
+    .article-reader {
+        padding: 65px 22px 70px;
+    }
+
+    .article-body {
+        margin-top: 70px;
+    }
+
+    .article-body h1 {
+        font-size: 50px;
+    }
+
+    .article-body p {
+        font-size: 16px;
+    }
+
+    .article-body blockquote {
+        font-size: 23px;
+    }
+
+}
