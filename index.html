@@ -1,616 +1,1127 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="description" content="Ritul's Digital Museum — thoughts, work, art, observations and everything in between.">
+    <title>Ritul's Digital Museum</title>
 
-  <title>Ritul's Digital Museum</title>
+    <meta name="description"
+          content="A little digital museum of thoughts, work, art, observations, ideas and everything in between.">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap"
+          rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="noise"></div>
+<div class="grain"></div>
 
-<header class="topbar">
+<header class="header">
 
-  <a class="brand" href="#top">
-    RITUL'S<br>
-    <span>DIGITAL MUSEUM</span>
-  </a>
+    <a href="#home" class="logo">
+        RITUL'S
+        <span>DIGITAL MUSEUM</span>
+    </a>
 
-  <nav>
-    <a href="#exhibits">exhibits</a>
-    <a href="#mind">what's in my mind</a>
-    <a href="#about">about</a>
-    <a href="#contact">contact</a>
-  </nav>
+    <nav class="desktop-nav">
+        <a href="#work">work</a>
+        <a href="#mind">writing</a>
+        <a href="#museum">museum</a>
+        <a href="#about">about</a>
+        <a href="#contact">contact</a>
+    </nav>
 
-  <button class="theme" id="theme" aria-label="Toggle dark and light mode">
-    ◐
-  </button>
+    <div class="header-actions">
+
+        <button class="search-button" id="searchOpen">
+            SEARCH
+        </button>
+
+        <button class="theme-button" id="themeToggle">
+            ◐
+        </button>
+
+        <button class="menu-button" id="menuButton">
+            MENU
+        </button>
+
+    </div>
 
 </header>
 
 
-<main id="top">
+<!-- MOBILE MENU -->
 
-<!-- HERO -->
+<div class="mobile-menu" id="mobileMenu">
 
-<section class="entrance">
+    <button class="mobile-close" id="mobileClose">CLOSE ×</button>
 
-  <div class="museum-number">
-    MUSEUM / 001 · OPEN 24/7
-  </div>
+    <a href="#work">WORK</a>
+    <a href="#mind">WRITING</a>
+    <a href="#museum">MUSEUM</a>
+    <a href="#about">ABOUT</a>
+    <a href="#contact">CONTACT</a>
 
-  <div class="entrance-copy">
-
-    <p class="kicker">
-      welcome, curious person
-    </p>
-
-    <h1>
-      A little<br>
-      <i>museum</i><br>
-      of me.
-    </h1>
-
-    <p class="lede">
-      A living collection of thoughts, work, art, odd little observations,
-      unfinished ideas, and things I find worth keeping.
-    </p>
-
-    <a class="enter" href="#exhibits">
-      ENTER THE MUSEUM
-      <span>↘</span>
-    </a>
-
-  </div>
+</div>
 
 
-  <div class="installation">
+<!-- SEARCH -->
 
-    <div class="frame">
+<div class="search-overlay" id="searchOverlay">
 
-      <div class="frame-label">
-        EXHIBIT A<br>
-        <b>SELF, IN PROGRESS</b><br>
-        <small>mixed media · ongoing</small>
-      </div>
+    <button class="search-close" id="searchClose">
+        CLOSE ×
+    </button>
 
-      <div class="shape shape-a"></div>
-      <div class="shape shape-b"></div>
-      <div class="shape shape-c"></div>
+    <div class="search-inner">
 
-      <div class="scribble">
-        still<br>
-        becoming
-      </div>
+        <p class="eyebrow">THE MUSEUM SEARCH</p>
+
+        <h2>
+            What are you
+            <i>looking for?</i>
+        </h2>
+
+        <input
+            type="search"
+            id="searchInput"
+            placeholder="Try “ideas”, “writing”, “work”..."
+        >
+
+        <div id="searchResults"></div>
 
     </div>
 
-    <div class="museum-card">
-      currently on display<br>
-      <strong>version 01</strong>
+</div>
+
+
+<main>
+
+
+<!-- =========================================
+     HERO
+========================================= -->
+
+<section class="hero" id="home">
+
+    <div class="hero-number">
+        MUSEUM NO. 001
+        <span>OPEN 24 / 7</span>
     </div>
 
-  </div>
+
+    <div class="hero-copy">
+
+        <p class="eyebrow">
+            WELCOME, CURIOUS PERSON
+        </p>
+
+        <h1>
+            A little
+            <em>museum</em>
+            of me.
+        </h1>
+
+        <p class="hero-description">
+            A living collection of thoughts, work, art,
+            strange observations, unfinished ideas,
+            questions, curiosities and things I find
+            worth keeping.
+        </p>
+
+        <a href="#museum" class="museum-button">
+            ENTER THE MUSEUM
+            <span>↘</span>
+        </a>
+
+    </div>
 
 
-  <div class="floor-note">
-    PLEASE TOUCH THE INTERNET<br>
-    <span>
-      some things here are meant to be explored.
-    </span>
-  </div>
+    <!-- HERO INSTALLATION -->
 
-</section>
+    <div class="hero-installation">
 
+        <div class="art-frame">
 
-<!-- MOVING STRIP -->
+            <div class="frame-top">
+                EXHIBIT A
+                <span>MIXED MEDIA · ONGOING</span>
+            </div>
 
-<section class="marquee">
+            <div class="abstract-shape shape-one"></div>
+            <div class="abstract-shape shape-two"></div>
+            <div class="abstract-shape shape-three"></div>
 
-  <div>
-    THOUGHTS · WORK · ART · QUESTIONS · MEMORIES · CURIOSITIES ·
-    THINGS I LEARNED · THINGS I MADE · THINGS I DON'T KNOW YET ·
-  </div>
+            <div class="frame-writing">
+                still
+                <br>
+                becoming
+            </div>
 
-</section>
+            <div class="frame-bottom">
+                SELF, IN PROGRESS
+            </div>
 
-
-<!-- EXHIBITS -->
-
-<section class="exhibits section" id="exhibits">
-
-  <div class="section-top">
-
-    <p class="label">
-      01 / permanent collection
-    </p>
-
-    <p class="hint">
-      click around. there are no velvet ropes.
-    </p>
-
-  </div>
+        </div>
 
 
-  <div class="exhibit-grid">
+        <div class="object-label">
 
-    <a class="exhibit tall" href="#mind">
+            <span>FOUND OBJECT</span>
 
-      <span class="room">ROOM 01</span>
+            <strong>
+                VERSION 01
+            </strong>
 
-      <div>
-        <small>THE JOURNAL</small>
+            <small>
+                collected somewhere between
+                curiosity and chaos
+            </small>
 
-        <h2>
-          What's in<br>
-          <i>my mind?</i>
-        </h2>
-      </div>
+        </div>
 
-      <b>↗</b>
-
-    </a>
+    </div>
 
 
-    <a class="exhibit warm" href="#art">
+    <div class="hero-footer">
 
-      <span class="room">ROOM 02</span>
+        <span>
+            PLEASE TOUCH THE INTERNET
+        </span>
 
-      <div>
-        <small>VISUAL ARCHIVE</small>
+        <span>
+            SOME THINGS HERE ARE MEANT TO BE EXPLORED.
+        </span>
 
-        <h2>
-          Artwork<br>
-          &amp; <i>images</i>
-        </h2>
-      </div>
-
-      <b>↗</b>
-
-    </a>
-
-
-    <a class="exhibit dark" href="#ideas">
-
-      <span class="room">ROOM 03</span>
-
-      <div>
-        <small>UNFINISHED DEPARTMENT</small>
-
-        <h2>
-          Ideas<br>
-          <i>in my mind</i>
-        </h2>
-      </div>
-
-      <b>↗</b>
-
-    </a>
-
-
-    <a class="exhibit small" href="#thoughts">
-
-      <span class="room">ROOM 04</span>
-
-      <div>
-        <small>MICRO-OBSERVATIONS</small>
-
-        <h2>
-          Thought<br>
-          <i>Museum</i>
-        </h2>
-      </div>
-
-      <b>↗</b>
-
-    </a>
-
-
-    <a class="exhibit odd" href="#random">
-
-      <span class="room">ROOM 05</span>
-
-      <div>
-        <small>CURIOSITY CABINET</small>
-
-        <h2>
-          Random<br>
-          <i>information</i>
-        </h2>
-      </div>
-
-      <b>↗</b>
-
-    </a>
-
-
-    <a class="exhibit wide" href="#about">
-
-      <span class="room">ROOM 06</span>
-
-      <div>
-        <small>PERSONAL ARCHIVE</small>
-
-        <h2>
-          The Digital Museum<br>
-          <i>of Me</i>
-        </h2>
-      </div>
-
-      <b>↗</b>
-
-    </a>
-
-  </div>
+    </div>
 
 </section>
 
 
-<!-- FEATURED WRITING -->
+<!-- =========================================
+     MARQUEE
+========================================= -->
 
-<section class="featured section" id="mind">
+<div class="marquee">
 
-  <div class="section-top">
+    <div class="marquee-track">
 
-    <p class="label">
-      02 / currently on display
-    </p>
+        THOUGHTS · WORK · ART · QUESTIONS · MEMORIES ·
+        CURIOSITIES · THINGS I LEARNED · THINGS I MADE ·
+        THINGS I DON'T KNOW YET ·
 
-    <p class="hint">
-      featured pieces from the collection
-    </p>
+        THOUGHTS · WORK · ART · QUESTIONS · MEMORIES ·
+        CURIOSITIES · THINGS I LEARNED · THINGS I MADE ·
+        THINGS I DON'T KNOW YET ·
 
-  </div>
+    </div>
 
-
-  <div class="featured-grid">
-
-    <article class="featured-main">
-
-      <p class="stamp">
-        FEATURED PIECE · ESSAY · 7 MIN READ
-      </p>
-
-      <h2>
-        The strange comfort<br>
-        of <i>starting over.</i>
-      </h2>
-
-      <p>
-        Maybe beginnings feel so difficult because we imagine they should
-        look impressive. Maybe most of them are supposed to look like this:
-        small, uncertain, ordinary.
-      </p>
-
-      <a href="article.html">
-        read the piece →
-      </a>
-
-    </article>
+</div>
 
 
-    <aside>
+<!-- =========================================
+     MUSEUM MAP
+========================================= -->
 
-      <div class="quote">
-        “A collection is just a way of saying:
-        <i>I noticed this.</i>”
-      </div>
+<section class="section museum-section" id="museum">
 
-      <div class="artifact">
+    <div class="section-heading">
 
-        <span>FOUND OBJECT #17</span>
+        <div>
+            <span class="section-number">01 / PERMANENT COLLECTION</span>
+            <h2>
+                Choose a
+                <i>room.</i>
+            </h2>
+        </div>
 
-        <strong>
-          an idea written<br>
-          at 2:13 AM
-        </strong>
+        <p>
+            There are no velvet ropes here.
+            Click around.
+        </p>
 
-        <small>
-          status: still thinking about it
+    </div>
+
+
+    <div class="museum-grid">
+
+
+        <a href="#mind" class="room-card room-large">
+
+            <span class="room-number">ROOM 01</span>
+
+            <div class="room-content">
+
+                <small>THE JOURNAL</small>
+
+                <h3>
+                    What's in
+                    <i>my mind?</i>
+                </h3>
+
+                <p>
+                    Essays, stories, observations
+                    and things I've been thinking about.
+                </p>
+
+            </div>
+
+            <span class="room-arrow">↗</span>
+
+        </a>
+
+
+        <a href="#work" class="room-card room-work">
+
+            <span class="room-number">ROOM 02</span>
+
+            <div class="room-content">
+
+                <small>WORK ARCHIVE</small>
+
+                <h3>
+                    Things
+                    <i>I've made.</i>
+                </h3>
+
+            </div>
+
+            <span class="room-arrow">↗</span>
+
+        </a>
+
+
+        <a href="#ideas" class="room-card room-ideas">
+
+            <span class="room-number">ROOM 03</span>
+
+            <div class="room-content">
+
+                <small>UNFINISHED DEPARTMENT</small>
+
+                <h3>
+                    Ideas in
+                    <i>my mind.</i>
+                </h3>
+
+            </div>
+
+            <span class="room-arrow">↗</span>
+
+        </a>
+
+
+        <a href="#thoughts" class="room-card room-thoughts">
+
+            <span class="room-number">ROOM 04</span>
+
+            <div class="room-content">
+
+                <small>MICRO OBSERVATIONS</small>
+
+                <h3>
+                    Thought
+                    <i>Museum.</i>
+                </h3>
+
+            </div>
+
+            <span class="room-arrow">↗</span>
+
+        </a>
+
+
+        <a href="#random" class="room-card room-random">
+
+            <span class="room-number">ROOM 05</span>
+
+            <div class="room-content">
+
+                <small>CURIOSITY CABINET</small>
+
+                <h3>
+                    Random
+                    <i>information.</i>
+                </h3>
+
+            </div>
+
+            <span class="room-arrow">↗</span>
+
+        </a>
+
+
+        <a href="#about" class="room-card room-me">
+
+            <span class="room-number">ROOM 06</span>
+
+            <div class="room-content">
+
+                <small>PERSONAL ARCHIVE</small>
+
+                <h3>
+                    The Digital
+                    <i>Museum of Me.</i>
+                </h3>
+
+            </div>
+
+            <span class="room-arrow">↗</span>
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     WORK
+========================================= -->
+
+<section class="section work-section" id="work">
+
+    <div class="section-heading">
+
+        <div>
+
+            <span class="section-number">
+                02 / WORK ARCHIVE
+            </span>
+
+            <h2>
+                Things I've
+                <i>made.</i>
+            </h2>
+
+        </div>
+
+        <p>
+            The serious stuff lives here.
+            It just doesn't have to look serious.
+        </p>
+
+    </div>
+
+
+    <div class="work-filter">
+
+        <button class="filter active" data-filter="all">
+            ALL
+        </button>
+
+        <button class="filter" data-filter="writing">
+            WRITING
+        </button>
+
+        <button class="filter" data-filter="digital">
+            DIGITAL
+        </button>
+
+        <button class="filter" data-filter="strategy">
+            STRATEGY
+        </button>
+
+    </div>
+
+
+    <div class="work-list">
+
+
+        <article class="work-item" data-category="writing">
+
+            <div class="work-index">001</div>
+
+            <div class="work-info">
+
+                <span>CONTENT · WRITING</span>
+
+                <h3>
+                    Building useful things
+                    with words.
+                </h3>
+
+                <p>
+                    A collection of editorial,
+                    SEO and B2B/B2C content work.
+                </p>
+
+            </div>
+
+            <div class="work-year">
+                2024—26
+            </div>
+
+            <a href="#" class="work-open">
+                VIEW ↗
+            </a>
+
+        </article>
+
+
+        <article class="work-item" data-category="digital">
+
+            <div class="work-index">002</div>
+
+            <div class="work-info">
+
+                <span>DIGITAL · PERSONAL</span>
+
+                <h3>
+                    A website that feels
+                    like a place.
+                </h3>
+
+                <p>
+                    The ongoing experiment that
+                    eventually became this museum.
+                </p>
+
+            </div>
+
+            <div class="work-year">
+                2026
+            </div>
+
+            <a href="#" class="work-open">
+                VIEW ↗
+            </a>
+
+        </article>
+
+
+        <article class="work-item" data-category="strategy">
+
+            <div class="work-index">003</div>
+
+            <div class="work-info">
+
+                <span>MARKETING · STRATEGY</span>
+
+                <h3>
+                    Making complicated
+                    things understandable.
+                </h3>
+
+                <p>
+                    Campaigns, research, outreach and
+                    digital marketing experiments.
+                </p>
+
+            </div>
+
+            <div class="work-year">
+                2024—26
+            </div>
+
+            <a href="#" class="work-open">
+                VIEW ↗
+            </a>
+
+        </article>
+
+
+        <article class="work-item" data-category="writing">
+
+            <div class="work-index">004</div>
+
+            <div class="work-info">
+
+                <span>EDITORIAL · LONGFORM</span>
+
+                <h3>
+                    Technology,
+                    people and the spaces between.
+                </h3>
+
+                <p>
+                    Selected long-form writing and
+                    research-driven pieces.
+                </p>
+
+            </div>
+
+            <div class="work-year">
+                2025—26
+            </div>
+
+            <a href="#" class="work-open">
+                VIEW ↗
+            </a>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     FEATURED ARTICLE
+========================================= -->
+
+<section class="featured-section" id="mind">
+
+    <div class="featured-inner">
+
+        <div class="featured-meta">
+
+            <span>
+                03 / CURRENTLY ON DISPLAY
+            </span>
+
+            <span>
+                ESSAY · 7 MIN READ
+            </span>
+
+        </div>
+
+
+        <div class="featured-layout">
+
+            <div class="featured-text">
+
+                <p class="piece-label">
+                    FEATURED PIECE
+                </p>
+
+                <h2>
+                    The strange comfort
+                    of <i>starting over.</i>
+                </h2>
+
+                <p>
+                    Maybe beginnings feel difficult because
+                    we imagine they should look impressive.
+
+                    Maybe most beginnings are supposed to
+                    look like this instead — small, uncertain,
+                    ordinary.
+                </p>
+
+                <a href="article.html" class="read-link">
+                    READ THE PIECE →
+                </a>
+
+            </div>
+
+
+            <div class="featured-object">
+
+                <div class="paper">
+
+                    <span>
+                        NOTE / 017
+                    </span>
+
+                    <strong>
+                        START
+                        <br>
+                        AGAIN
+                    </strong>
+
+                    <small>
+                        written somewhere
+                        between doubt
+                        and hope
+                    </small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     IDEAS
+========================================= -->
+
+<section class="section ideas-section" id="ideas">
+
+    <div class="ideas-intro">
+
+        <span class="section-number">
+            04 / UNFINISHED DEPARTMENT
+        </span>
+
+        <h2>
+            Some ideas
+            are better
+            <i>left unfinished.</i>
+        </h2>
+
+        <p>
+            Not everything needs to become a project.
+            Some things can simply exist as questions.
+        </p>
+
+    </div>
+
+
+    <div class="ideas-list">
+
+        <button class="idea-row">
+
+            <span>IDEA 014</span>
+
+            <strong>
+                What if a website could feel like a room?
+            </strong>
+
+            <i>→</i>
+
+        </button>
+
+
+        <button class="idea-row">
+
+            <span>IDEA 021</span>
+
+            <strong>
+                A list of things I want to understand before I'm 30.
+            </strong>
+
+            <i>→</i>
+
+        </button>
+
+
+        <button class="idea-row">
+
+            <span>IDEA 033</span>
+
+            <strong>
+                Making an archive of ordinary days.
+            </strong>
+
+            <i>→</i>
+
+        </button>
+
+
+        <button class="idea-row">
+
+            <span>IDEA 041</span>
+
+            <strong>
+                Why do we keep things that have no practical use?
+            </strong>
+
+            <i>→</i>
+
+        </button>
+
+
+        <button class="idea-row">
+
+            <span>IDEA 052</span>
+
+            <strong>
+                Designing a digital place for unfinished thoughts.
+            </strong>
+
+            <i>→</i>
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     THOUGHT MUSEUM
+========================================= -->
+
+<section class="section thought-section" id="thoughts">
+
+    <div class="section-heading">
+
+        <div>
+
+            <span class="section-number">
+                05 / THOUGHT MUSEUM
+            </span>
+
+            <h2>
+                Tiny thoughts
+                <i>worth keeping.</i>
+            </h2>
+
+        </div>
+
+        <button class="shuffle-button" id="shuffleThought">
+            SHUFFLE A THOUGHT ↻
+        </button>
+
+    </div>
+
+
+    <div class="thought-grid">
+
+
+        <article class="thought-card">
+
+            <span>08.29.26</span>
+
+            <p>
+                Sometimes procrastination is just
+                perfectionism wearing comfortable clothes.
+            </p>
+
+        </article>
+
+
+        <article class="thought-card">
+
+            <span>08.21.26</span>
+
+            <p>
+                There are people you only know through
+                the version of yourself that existed around them.
+            </p>
+
+        </article>
+
+
+        <article class="thought-card">
+
+            <span>08.12.26</span>
+
+            <p>
+                I like unfinished books because they remind
+                me that nobody knows how a story ends while
+                they're living it.
+            </p>
+
+        </article>
+
+
+        <article class="thought-card hidden-thought">
+
+            <span>07.30.26</span>
+
+            <p>
+                Maybe collecting things is just another
+                way of paying attention.
+            </p>
+
+        </article>
+
+
+        <article class="thought-card hidden-thought">
+
+            <span>07.17.26</span>
+
+            <p>
+                Some places become important because of
+                who we were when we stood inside them.
+            </p>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     DIGITAL MUSEUM OF ME
+========================================= -->
+
+<section class="me-section" id="about">
+
+    <div class="me-inner">
+
+        <div class="me-label">
+
+            <span>
+                06 / PERSONAL ARCHIVE
+            </span>
+
+            <div class="archive-stamp">
+                ARCHIVE
+                <br>
+                OF ONE
+                <br>
+                PERSON
+            </div>
+
+        </div>
+
+
+        <div class="me-content">
+
+            <p class="eyebrow">
+                THE PERSON BEHIND THE MUSEUM
+            </p>
+
+            <h2>
+                Hi.
+                <br>
+                I'm <i>Ritul.</i>
+            </h2>
+
+            <p>
+                I'm interested in a slightly unreasonable
+                number of things.
+            </p>
+
+            <p>
+                Writing. Digital spaces. Ideas. Stories.
+                Design. Business. Little details people
+                overlook. And the strange process of
+                becoming a person.
+            </p>
+
+            <p>
+                This website is where those interests get
+                to coexist. The professional work belongs
+                here. So do the weird thoughts, experiments,
+                sketches, rabbit holes and things that don't
+                fit neatly anywhere else.
+            </p>
+
+            <a href="#contact" class="outline-button">
+                SAY HELLO ↗
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     ARTWORK
+========================================= -->
+
+<section class="section artwork-section" id="art">
+
+    <div class="section-heading">
+
+        <div>
+
+            <span class="section-number">
+                07 / VISUAL ARCHIVE
+            </span>
+
+            <h2>
+                Things I
+                <i>notice.</i>
+            </h2>
+
+        </div>
+
+        <p>
+            Placeholder pieces for now.
+            Your actual artwork goes here.
+        </p>
+
+    </div>
+
+
+    <div class="artwork-grid">
+
+        <div class="art-card art-one">
+
+            <span>OBJECT 001</span>
+
+            <strong>
+                THE
+                <br>
+                QUIET
+                <br>
+                HOUR
+            </strong>
+
+        </div>
+
+
+        <div class="art-card art-two">
+
+            <span>OBJECT 002</span>
+
+            <strong>
+                FRAGMENTS
+                <br>
+                OF A
+                <br>
+                THOUGHT
+            </strong>
+
+        </div>
+
+
+        <div class="art-card art-three">
+
+            <span>OBJECT 003</span>
+
+            <strong>
+                NOTES
+                <br>
+                FROM
+                <br>
+                NOWHERE
+            </strong>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     CURIOSITY CABINET
+========================================= -->
+
+<section class="section random-section" id="random">
+
+    <div class="random-label">
+
+        <span class="section-number">
+            08 / CURIOSITY CABINET
+        </span>
+
+        <p>
+            Completely unnecessary information.
+            Therefore, obviously important.
+        </p>
+
+    </div>
+
+
+    <div class="random-display">
+
+        <span>
+            DID YOU KNOW?
+        </span>
+
+        <h2 id="randomFact">
+            Honey never really spoils.
+        </h2>
+
+        <p id="randomExplanation">
+            Archaeologists have found edible honey
+            in ancient Egyptian tombs.
+        </p>
+
+        <button id="randomButton">
+            SHOW ME ANOTHER THING ↻
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     NEWSLETTER
+========================================= -->
+
+<section class="newsletter">
+
+    <div>
+
+        <span class="section-number">
+            09 / THE MAIL ROOM
+        </span>
+
+        <h2>
+            Occasionally,
+            something from
+            <i>the museum.</i>
+        </h2>
+
+        <p>
+            A future home for occasional notes,
+            new writing and interesting things.
+        </p>
+
+    </div>
+
+
+    <form id="newsletterForm">
+
+        <input
+            type="email"
+            placeholder="your email address"
+            required
+        >
+
+        <button type="submit">
+            JOIN THE LIST →
+        </button>
+
+        <small id="newsletterMessage">
+            Newsletter-ready for now.
+            Connect your email service later.
         </small>
 
-      </div>
-
-    </aside>
-
-  </div>
+    </form>
 
 </section>
 
 
-<!-- IDEAS -->
+<!-- =========================================
+     CONTACT
+========================================= -->
 
-<section class="ideas section" id="ideas">
+<section class="contact-section" id="contact">
 
-  <div class="idea-intro">
-
-    <p class="label">
-      03 / unfinished department
-    </p>
+    <span class="section-number">
+        10 / EXIT THROUGH THE GIFT SHOP
+    </span>
 
     <h2>
-      Some ideas<br>
-      are better<br>
-      <i>left unfinished.</i>
+        Take a piece
+        <i>with you.</i>
     </h2>
 
     <p>
-      Not everything needs to become a project.
-      Some things can simply exist as questions.
+        Come back whenever.
+        The museum is always collecting.
     </p>
 
-  </div>
-
-
-  <div class="idea-stack">
-
-    <div class="idea">
-      <span>IDEA 014</span>
-      <b>What if a website could feel like a room?</b>
-      <i>→</i>
-    </div>
-
-    <div class="idea">
-      <span>IDEA 021</span>
-      <b>A list of things I want to understand before I'm 30.</b>
-      <i>→</i>
-    </div>
-
-    <div class="idea">
-      <span>IDEA 033</span>
-      <b>Making an archive of ordinary days.</b>
-      <i>→</i>
-    </div>
-
-    <div class="idea">
-      <span>IDEA 041</span>
-      <b>Why do we keep things that have no practical use?</b>
-      <i>→</i>
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- THOUGHT MUSEUM -->
-
-<section class="mini-museum section" id="thoughts">
-
-  <div class="section-top">
-
-    <p class="label">
-      04 / thought museum
-    </p>
-
-    <a href="#" class="plain-link">
-      view all →
+    <a href="mailto:hello@apieceofme.github.io">
+        hello@apieceofme.github.io ↗
     </a>
 
-  </div>
 
+    <footer>
 
-  <div class="thoughts">
+        <span>
+            RITUL'S DIGITAL MUSEUM
+        </span>
 
-    <div>
-      <span>08.29.26</span>
+        <span>
+            EST. 2026 · OPEN 24 / 7
+        </span>
 
-      <p>
-        Sometimes procrastination is just perfectionism
-        wearing comfortable clothes.
-      </p>
-    </div>
+        <span>
+            MADE ON THE INTERNET
+        </span>
 
-
-    <div>
-      <span>08.21.26</span>
-
-      <p>
-        There are people you only know through the version
-        of yourself that existed around them.
-      </p>
-    </div>
-
-
-    <div>
-      <span>08.12.26</span>
-
-      <p>
-        I like unfinished books because they remind me that
-        nobody knows how a story ends while they're living it.
-      </p>
-    </div>
-
-  </div>
+    </footer>
 
 </section>
 
-
-<!-- ABOUT -->
-
-<section class="about section" id="about">
-
-  <div class="about-stamp">
-    ARCHIVE<br>
-    OF ONE<br>
-    PERSON
-  </div>
-
-
-  <div>
-
-    <p class="label">
-      05 / the person behind the museum
-    </p>
-
-    <h2>
-      Hi. I'm <i>Ritul.</i>
-    </h2>
-
-    <p class="about-copy">
-      I'm interested in a slightly unreasonable number of things.
-      Writing, digital spaces, ideas, stories, design, business,
-      little details people overlook, and the strange process
-      of becoming a person.
-    </p>
-
-    <p class="about-copy">
-      This website is where those interests get to coexist.
-      The professional work belongs here. So do the weird thoughts,
-      experiments, sketches, rabbit holes and things that don't fit
-      neatly anywhere else.
-    </p>
-
-    <a href="#contact" class="enter dark-enter">
-      say hello <span>↗</span>
-    </a>
-
-  </div>
-
-</section>
-
-
-<!-- ART -->
-
-<section class="cabinet section" id="art">
-
-  <div class="section-top">
-
-    <p class="label">
-      06 / visual archive
-    </p>
-
-    <p class="hint">
-      a few placeholder pieces · yours will live here
-    </p>
-
-  </div>
-
-
-  <div class="cabinet-grid">
-
-    <div class="art-piece p1">
-      <span>01</span>
-
-      <strong>
-        THE<br>
-        QUIET<br>
-        HOUR
-      </strong>
-    </div>
-
-
-    <div class="art-piece p2">
-
-      <span>02</span>
-
-      <strong>
-        FRAGMENTS<br>
-        OF A<br>
-        THOUGHT
-      </strong>
-
-    </div>
-
-
-    <div class="art-piece p3">
-
-      <span>03</span>
-
-      <strong>
-        NOTES<br>
-        FROM<br>
-        NOWHERE
-      </strong>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- RANDOM INFORMATION -->
-
-<section class="random section" id="random">
-
-  <p class="label">
-    07 / curiosity cabinet
-  </p>
-
-
-  <div class="random-box">
-
-    <span class="question">
-      DID YOU KNOW?
-    </span>
-
-    <h2 id="fact">
-      Honey never really spoils.
-    </h2>
-
-    <p id="factNote">
-      Archaeologists have found edible honey in ancient Egyptian tombs.
-    </p>
-
-    <button id="shuffle">
-      show me another thing ↻
-    </button>
-
-  </div>
-
-</section>
-
-
-<!-- CONTACT -->
-
-<section class="contact" id="contact">
-
-  <p class="label">
-    08 / exit through the gift shop
-  </p>
-
-  <h2>
-    Take a piece<br>
-    <i>with you.</i>
-  </h2>
-
-  <p>
-    Come back whenever. The museum is always collecting.
-  </p>
-
-  <a href="mailto:hello@apieceofme.github.io">
-    hello@apieceofme.github.io ↗
-  </a>
-
-
-  <footer>
-
-    <span>
-      RITUL'S DIGITAL MUSEUM
-    </span>
-
-    <span>
-      EST. 2026 · OPEN 24/7
-    </span>
-
-  </footer>
-
-</section>
 
 </main>
+
 
 <script src="script.js"></script>
 
