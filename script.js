@@ -676,3 +676,60 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 });
+
+const facts = [
+    {
+        fact: "Honey never really spoils.",
+        explanation: "Archaeologists have found edible honey in ancient Egyptian tombs."
+    },
+    {
+        fact: "Octopuses have three hearts.",
+        explanation: "Two hearts pump blood to the gills, while the third pumps it to the rest of the body."
+    },
+    {
+        fact: "Bananas are berries, but strawberries aren't.",
+        explanation: "Botanically, bananas meet the definition of a berry, while strawberries are accessory fruits."
+    },
+    {
+        fact: "A day on Venus is longer than its year.",
+        explanation: "Venus takes about 243 Earth days to rotate once but only about 225 Earth days to orbit the Sun."
+    },
+    {
+        fact: "Wombat poop is cube-shaped.",
+        explanation: "Wombats produce cube-shaped droppings, which helps prevent them from rolling away."
+    },
+    {
+        fact: "Your brain uses about 20% of your body's energy.",
+        explanation: "Even though the brain makes up only a small portion of body weight, it has a remarkably high energy demand."
+    },
+    {
+        fact: "Sharks are older than trees.",
+        explanation: "Sharks have existed for hundreds of millions of years, appearing long before the first trees evolved."
+    },
+    {
+        fact: "There are more possible chess games than atoms in the observable universe.",
+        explanation: "The number of possible chess games is astronomically large, estimated to exceed 10^120."
+    },
+    {
+        fact: "A group of flamingos is called a flamboyance.",
+        explanation: "The wonderfully dramatic collective noun for flamingos is a flamboyance."
+    },
+    {
+        fact: "Cleopatra lived closer to the Moon landing than to the construction of the Great Pyramid.",
+        explanation: "Cleopatra lived around 2,500 years after the Great Pyramid was built and about 2,000 years before the Moon landing."
+    }
+];
+
+const randomButton = document.getElementById("randomButton");
+const randomFact = document.getElementById("randomFact");
+const randomExplanation = document.getElementById("randomExplanation");
+
+if (randomButton && randomFact && randomExplanation) {
+    randomButton.addEventListener("click", function () {
+        const randomIndex = Math.floor(Math.random() * facts.length);
+        const selectedFact = facts[randomIndex];
+
+        randomFact.textContent = selectedFact.fact;
+        randomExplanation.textContent = selectedFact.explanation;
+    });
+}
