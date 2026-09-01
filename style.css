@@ -2417,27 +2417,37 @@ body.light-mode .search-empty {
 
 }
 
+```css
 /* =========================================================
    STILL BECOMING JOURNAL
 ========================================================= */
+
+
+/* ---------------------------------------------------------
+   ARTWORK INTERACTION
+--------------------------------------------------------- */
 
 .art-frame {
     cursor: pointer;
 }
 
 .frame-open-note {
+
     position: absolute;
+
     left: 18px;
     bottom: 16px;
 
     z-index: 20;
 
     font: 8px var(--mono);
+
     letter-spacing: 1.5px;
 
     color: #eee1c9;
 
     opacity: 0;
+
     transform: translateY(5px);
 
     transition:
@@ -2445,13 +2455,19 @@ body.light-mode .search-empty {
         transform .3s ease;
 }
 
+
 .art-frame:hover .frame-open-note {
+
     opacity: .8;
+
     transform: translateY(0);
+
 }
 
 
-/* JOURNAL BACKDROP */
+/* ---------------------------------------------------------
+   JOURNAL OVERLAY
+--------------------------------------------------------- */
 
 .journal-overlay {
 
@@ -2464,6 +2480,7 @@ body.light-mode .search-empty {
     display: flex;
 
     align-items: center;
+
     justify-content: center;
 
     background:
@@ -2478,6 +2495,7 @@ body.light-mode .search-empty {
     transition:
         opacity .5s ease,
         visibility .5s ease;
+
 }
 
 
@@ -2488,19 +2506,44 @@ body.light-mode .search-empty {
     visibility: visible;
 
     pointer-events: auto;
+
 }
 
 
-/* CLOSE */
+/* ---------------------------------------------------------
+   TOP LABEL
+--------------------------------------------------------- */
+
+.journal-label {
+
+    position: absolute;
+
+    top: 32px;
+
+    left: 5vw;
+
+    color: var(--muted);
+
+    font: 9px var(--mono);
+
+    letter-spacing: 1.5px;
+
+}
+
+
+/* ---------------------------------------------------------
+   CLOSE
+--------------------------------------------------------- */
 
 .journal-close {
 
     position: absolute;
 
     top: 30px;
+
     right: 5vw;
 
-    z-index: 20;
+    z-index: 30;
 
     border: 0;
 
@@ -2513,53 +2556,48 @@ body.light-mode .search-empty {
     letter-spacing: 1.5px;
 
     cursor: pointer;
+
+    transition: color .3s ease;
+
 }
 
 
 .journal-close:hover {
+
     color: var(--text);
+
 }
 
 
-/* LABEL */
-
-.journal-label {
-
-    position: absolute;
-
-    top: 32px;
-    left: 5vw;
-
-    color: var(--muted);
-
-    font: 9px var(--mono);
-
-    letter-spacing: 1.5px;
-}
-
-
-/* BOOK */
+/* ---------------------------------------------------------
+   BOOK
+--------------------------------------------------------- */
 
 .journal {
 
-    width: min(900px, 82vw);
+    width: min(1000px, 86vw);
 
-    height: min(600px, 72vh);
+    height: min(650px, 76vh);
 
     position: relative;
 
     display: flex;
 
+    perspective: 1800px;
+
     transform:
-        translateY(30px)
-        scale(.95);
+        translateY(35px)
+        scale(.94);
+
+    opacity: 0;
 
     transition:
-        transform .7s
-        cubic-bezier(.22,.61,.36,1);
+        transform .7s cubic-bezier(.22,.61,.36,1),
+        opacity .7s ease;
 
     box-shadow:
-        0 40px 80px rgba(0,0,0,.55);
+        0 45px 100px rgba(0,0,0,.6);
+
 }
 
 
@@ -2568,100 +2606,158 @@ body.light-mode .search-empty {
     transform:
         translateY(0)
         scale(1);
+
+    opacity: 1;
+
 }
 
 
-/* PAGES */
+/* ---------------------------------------------------------
+   PAGES
+--------------------------------------------------------- */
 
 .journal-page {
 
     width: 50%;
+
     height: 100%;
 
     position: relative;
 
     overflow: hidden;
 
-    padding: 55px;
+    padding: 60px;
 
     background:
         linear-gradient(
             90deg,
-            #d8cdb8,
+            #d5cab5 0%,
             #eee5d3 50%,
-            #ded2bc
+            #ddd1bb 100%
         );
 
     color: #302d27;
 
     box-sizing: border-box;
+
 }
 
+
+/* LEFT PAGE */
 
 .left-page {
 
-    border-radius: 5px 0 0 5px;
+    border-radius:
+        6px 0 0 6px;
 
     box-shadow:
-        inset -12px 0 20px rgba(0,0,0,.08);
+        inset -18px 0 25px rgba(0,0,0,.09);
+
 }
 
+
+/* RIGHT PAGE */
 
 .right-page {
 
-    border-radius: 0 5px 5px 0;
+    border-radius:
+        0 6px 6px 0;
 
     box-shadow:
-        inset 12px 0 20px rgba(0,0,0,.06);
+        inset 18px 0 25px rgba(0,0,0,.07);
 
     transform-origin: left center;
 
+    transform-style: preserve-3d;
+
     transition:
-        transform .9s
+        transform .95s
         cubic-bezier(.65,0,.35,1);
+
 }
 
 
-/* PAGE NUMBER */
+/* ---------------------------------------------------------
+   PAPER TEXTURE
+--------------------------------------------------------- */
+
+.journal-page::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    opacity: .12;
+
+    background-image:
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 3px,
+            rgba(70,60,45,.08) 4px
+        );
+
+}
+
+
+/* ---------------------------------------------------------
+   PAGE NUMBER
+--------------------------------------------------------- */
 
 .page-number {
 
     position: absolute;
 
-    top: 25px;
-    right: 30px;
+    top: 28px;
+
+    right: 32px;
+
+    z-index: 5;
 
     font: 8px var(--mono);
 
     letter-spacing: 2px;
 
     opacity: .45;
+
 }
 
 
-/* CONTENT */
+/* ---------------------------------------------------------
+   PAGE CONTENT
+--------------------------------------------------------- */
 
 .page-content {
 
     height: 100%;
+
+    position: relative;
+
+    z-index: 2;
 
     display: flex;
 
     flex-direction: column;
 
     justify-content: center;
+
 }
 
 
 .page-small-title {
 
-    margin-bottom: 25px;
+    margin-bottom: 28px;
 
     font: 8px var(--mono);
 
     letter-spacing: 2px;
 
     opacity: .55;
+
 }
 
 
@@ -2670,16 +2766,17 @@ body.light-mode .search-empty {
     margin: 0 0 28px;
 
     font:
-        500 clamp(42px, 5vw, 70px)
-        /.85 var(--serif);
+        500 clamp(42px, 5vw, 72px)
+        /.86 var(--serif);
 
     letter-spacing: -3px;
+
 }
 
 
 .page-content p {
 
-    max-width: 310px;
+    max-width: 330px;
 
     margin: 0 0 18px;
 
@@ -2687,8 +2784,13 @@ body.light-mode .search-empty {
         14px/1.8 var(--serif);
 
     opacity: .78;
+
 }
 
+
+/* ---------------------------------------------------------
+   HANDWRITTEN NOTE
+--------------------------------------------------------- */
 
 .handwritten {
 
@@ -2703,21 +2805,26 @@ body.light-mode .search-empty {
     opacity: .65;
 
     transform: rotate(-2deg);
+
 }
 
 
-/* IMAGE */
+/* ---------------------------------------------------------
+   IMAGE
+--------------------------------------------------------- */
 
 .journal-image-placeholder {
 
     width: 100%;
-    height: 230px;
 
-    margin-bottom: 12px;
+    height: 240px;
+
+    margin-bottom: 14px;
 
     display: flex;
 
     align-items: center;
+
     justify-content: center;
 
     background:
@@ -2734,7 +2841,9 @@ body.light-mode .search-empty {
 
     letter-spacing: 2px;
 
-    color: rgba(40,35,25,.55);
+    color:
+        rgba(40,35,25,.55);
+
 }
 
 
@@ -2746,17 +2855,23 @@ body.light-mode .search-empty {
     letter-spacing: 1px;
 
     opacity: .5 !important;
+
 }
 
 
-/* TURN PAGE */
+/* ---------------------------------------------------------
+   PAGE TURN BUTTON
+--------------------------------------------------------- */
 
 .page-turn {
 
     position: absolute;
 
     right: 28px;
+
     bottom: 25px;
+
+    z-index: 10;
 
     border: 0;
 
@@ -2775,6 +2890,7 @@ body.light-mode .search-empty {
     transition:
         opacity .3s ease,
         transform .3s ease;
+
 }
 
 
@@ -2784,19 +2900,25 @@ body.light-mode .search-empty {
 
     transform:
         translateX(5px);
+
 }
 
 
-/* PAGE FLIP */
+/* ---------------------------------------------------------
+   PAGE FLIP
+--------------------------------------------------------- */
 
 .right-page.flipping {
 
     transform:
         rotateY(-180deg);
+
 }
 
 
-/* COUNTER */
+/* ---------------------------------------------------------
+   COUNTER
+--------------------------------------------------------- */
 
 .journal-counter {
 
@@ -2814,48 +2936,132 @@ body.light-mode .search-empty {
     font: 8px var(--mono);
 
     letter-spacing: 2px;
+
 }
 
 
-/* MOBILE */
+/* =========================================================
+   JOURNAL MOBILE
+========================================================= */
 
 @media (max-width: 700px) {
 
     .journal {
 
-        width: 90vw;
-        height: 70vh;
+        width: 92vw;
+
+        height: 72vh;
+
     }
+
 
     .journal-page {
 
-        padding: 30px;
+        padding: 32px;
+
     }
+
 
     .page-content h2 {
 
         font-size: 40px;
+
     }
+
 
     .page-content p {
 
         font-size: 12px;
+
     }
+
 
     .journal-image-placeholder {
 
-        height: 170px;
+        height: 175px;
+
     }
+
 
     .journal-label {
 
         left: 20px;
+
         top: 25px;
+
     }
+
 
     .journal-close {
 
         right: 20px;
+
         top: 25px;
+
     }
+
+
+    .journal-counter {
+
+        bottom: 18px;
+
+    }
+
 }
+
+
+/* =========================================================
+   VERY SMALL SCREENS
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .journal {
+
+        width: 94vw;
+
+        height: 75vh;
+
+    }
+
+
+    .journal-page {
+
+        padding: 25px;
+
+    }
+
+
+    .page-content h2 {
+
+        font-size: 34px;
+
+        letter-spacing: -2px;
+
+    }
+
+
+    .page-content p {
+
+        font-size: 11px;
+
+        line-height: 1.65;
+
+    }
+
+
+    .journal-image-placeholder {
+
+        height: 145px;
+
+    }
+
+
+    .handwritten {
+
+        font-size: 15px;
+
+    }
+
+}
+```
