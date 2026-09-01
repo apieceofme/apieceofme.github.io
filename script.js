@@ -733,3 +733,108 @@ if (randomButton && randomFact && randomExplanation) {
         randomExplanation.textContent = selectedFact.explanation;
     });
 }
+
+/* =========================================================
+   STILL BECOMING — JOURNAL
+   ========================================================= */
+
+const stillBecoming = document.getElementById("stillBecoming");
+const journalOverlay = document.getElementById("journalOverlay");
+const journalClose = document.getElementById("journalClose");
+const nextPage = document.getElementById("nextPage");
+const rightPage = document.querySelector(".right-page");
+const journalPageNumber = document.getElementById("journalPageNumber");
+
+
+/* OPEN JOURNAL */
+
+function openJournal() {
+
+    journalOverlay.classList.add("open");
+
+    document.body.style.overflow = "hidden";
+}
+
+
+/* CLOSE JOURNAL */
+
+function closeJournal() {
+
+    journalOverlay.classList.remove("open");
+
+    document.body.style.overflow = "";
+}
+
+
+/* CLICK ARTWORK */
+
+if (stillBecoming) {
+
+    stillBecoming.addEventListener("click", openJournal);
+
+    stillBecoming.addEventListener("keydown", function(event) {
+
+        if (
+            event.key === "Enter" ||
+            event.key === " "
+        ) {
+
+            event.preventDefault();
+
+            openJournal();
+        }
+
+    });
+}
+
+
+/* CLOSE BUTTON */
+
+if (journalClose) {
+
+    journalClose.addEventListener(
+        "click",
+        closeJournal
+    );
+}
+
+
+/* ESCAPE KEY */
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (
+            event.key === "Escape" &&
+            journalOverlay.classList.contains("open")
+        ) {
+
+            closeJournal();
+        }
+
+    }
+);
+
+
+/* TURN PAGE */
+
+if (nextPage) {
+
+    nextPage.addEventListener(
+        "click",
+        function() {
+
+            if (
+                !rightPage.classList.contains("flipping")
+            ) {
+
+                rightPage.classList.add("flipping");
+
+                journalPageNumber.textContent = "02 — 02";
+
+            }
+
+        }
+    );
+}
