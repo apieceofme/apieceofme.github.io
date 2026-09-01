@@ -734,107 +734,184 @@ if (randomButton && randomFact && randomExplanation) {
     });
 }
 
+```js
 /* =========================================================
    STILL BECOMING — JOURNAL
-   ========================================================= */
+========================================================= */
 
-const stillBecoming = document.getElementById("stillBecoming");
-const journalOverlay = document.getElementById("journalOverlay");
-const journalClose = document.getElementById("journalClose");
-const nextPage = document.getElementById("nextPage");
-const rightPage = document.querySelector(".right-page");
-const journalPageNumber = document.getElementById("journalPageNumber");
+document.addEventListener("DOMContentLoaded", () => {
 
+    const stillBecoming = document.getElementById("stillBecoming");
+    const journalOverlay = document.getElementById("journalOverlay");
+    const journalClose = document.getElementById("journalClose");
 
-/* OPEN JOURNAL */
+    const nextPage = document.getElementById("nextPage");
+    const rightPage = document.querySelector(".right-page");
+    const journalPageNumber = document.getElementById("journalPageNumber");
 
-function openJournal() {
-
-    journalOverlay.classList.add("open");
-
-    document.body.style.overflow = "hidden";
-}
+    let journalOpened = false;
+    let pageTurned = false;
 
 
-/* CLOSE JOURNAL */
+    /* -----------------------------------------------------
+       OPEN JOURNAL
+    ----------------------------------------------------- */
 
-function closeJournal() {
+    function openJournal() {
 
-    journalOverlay.classList.remove("open");
+        if (!journalOverlay) return;
 
-    document.body.style.overflow = "";
-}
+        journalOpened = true;
 
+        journalOverlay.classList.add("open");
 
-/* CLICK ARTWORK */
+        document.body.style.overflow = "hidden";
 
-if (stillBecoming) {
+        /* Reset journal every time it opens */
 
-    stillBecoming.addEventListener("click", openJournal);
+        pageTurned = false;
 
-    stillBecoming.addEventListener("keydown", function(event) {
-
-        if (
-            event.key === "Enter" ||
-            event.key === " "
-        ) {
-
-            event.preventDefault();
-
-            openJournal();
+        if (rightPage) {
+            rightPage.classList.remove("flipping");
         }
 
-    });
-}
-
-
-/* CLOSE BUTTON */
-
-if (journalClose) {
-
-    journalClose.addEventListener(
-        "click",
-        closeJournal
-    );
-}
-
-
-/* ESCAPE KEY */
-
-document.addEventListener(
-    "keydown",
-    function(event) {
-
-        if (
-            event.key === "Escape" &&
-            journalOverlay.classList.contains("open")
-        ) {
-
-            closeJournal();
+        if (journalPageNumber) {
+            journalPageNumber.textContent = "01 — 02";
         }
 
     }
-);
 
 
-/* TURN PAGE */
+    /* -----------------------------------------------------
+       CLOSE JOURNAL
+    ----------------------------------------------------- */
 
-if (nextPage) {
+    function closeJournal() {
 
-    nextPage.addEventListener(
-        "click",
-        function() {
+        if (!journalOverlay) return;
+
+        journalOpened = false;
+
+        journalOverlay.classList.remove("open");
+
+        document.body.style.overflow = "";
+
+        pageTurned = false;
+
+        if (rightPage) {
+            rightPage.classList.remove("flipping");
+        }
+
+        if (journalPageNumber) {
+            journalPageNumber.textContent = "01 — 02";
+        }
+
+    }
+
+
+    /* -----------------------------------------------------
+       OPEN FROM ARTWORK
+    ----------------------------------------------------- */
+
+    if (stillBecoming) {
+
+        stillBecoming.addEventListener("click", openJournal);
+
+
+        /* Keyboard accessibility */
+
+        stillBecoming.addEventListener("keydown", event => {
 
             if (
-                !rightPage.classList.contains("flipping")
+                event.key === "Enter" ||
+                event.key === " "
             ) {
 
-                rightPage.classList.add("flipping");
+                event.preventDefault();
 
-                journalPageNumber.textContent = "02 — 02";
+                openJournal();
 
             }
 
+        });
+
+    }
+
+
+    /* -----------------------------------------------------
+       CLOSE BUTTON
+    ----------------------------------------------------- */
+
+    if (journalClose) {
+
+        journalClose.addEventListener(
+            "click",
+            closeJournal
+        );
+
+    }
+
+
+    /* -----------------------------------------------------
+       CLICK OUTSIDE JOURNAL
+    ----------------------------------------------------- */
+
+    if (journalOverlay) {
+
+        journalOverlay.addEventListener("click", event => {
+
+            if (
+                event.target === journalOverlay
+            ) {
+
+                closeJournal();
+
+            }
+
+        });
+
+    }
+
+
+    /* -----------------------------------------------------
+       TURN PAGE
+    ----------------------------------------------------- */
+
+    if (nextPage && rightPage) {
+
+        nextPage.addEventListener("click", () => {
+
+            if (pageTurned) return;
+
+            pageTurned = true;
+
+            rightPage.classList.add("flipping");
+
+            if (journalPageNumber) {
+                journalPageNumber.textContent = "02 — 02";
+            }
+
+        });
+
+    }
+
+
+    /* -----------------------------------------------------
+       ESCAPE
+    ----------------------------------------------------- */
+
+    document.addEventListener("keydown", event => {
+
+        if (
+            event.key === "Escape" &&
+            journalOpened
+        ) {
+
+            closeJournal();
+
         }
-    );
-}
+
+    });
+
+});
+```
