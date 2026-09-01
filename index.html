@@ -20,97 +20,110 @@
 
 <body>
 
-    ```html
-<!-- =====================================================
+   <!-- =========================================================
      STILL BECOMING JOURNAL
-===================================================== -->
+========================================================= -->
 
-<div class="journal-overlay" id="journalOverlay">
+<div
+    class="journal-overlay"
+    id="journalOverlay"
+    aria-hidden="true"
+>
 
-    <div class="journal-label">
-        PERSONAL ARCHIVE / STILL BECOMING
-    </div>
+```
+<div class="journal-label">
+    PERSONAL ARCHIVE / 01
+</div>
 
-    <button
-        class="journal-close"
-        id="journalClose">
-        CLOSE ×
-    </button>
+<button
+    class="journal-close"
+    id="journalClose"
+    type="button"
+>
+    CLOSE ×
+</button>
 
 
-    <div class="journal">
+<div class="journal" role="dialog" aria-modal="true">
 
-        <!-- LEFT PAGE -->
 
-        <div class="journal-page left-page">
+    <!-- LEFT PAGE -->
 
-            <span class="page-number">
-                01 — 02
-            </span>
+    <div class="journal-page left-page">
 
-            <div class="page-content">
+        <div class="page-number">
+            01 — 02
+        </div>
 
-                <span class="page-small-title">
-                    A PAGE FROM THE ARCHIVE
-                </span>
+        <div class="page-content">
 
-                <h2>
-                    Still<br>
-                    <i>becoming.</i>
-                </h2>
+            <div class="page-small-title">
+                STILL BECOMING
+            </div>
 
-                <p>
-                    I used to think becoming someone meant
-                    eventually arriving somewhere.
-                </p>
+            <h2>
+                I am still<br>
+                becoming.
+            </h2>
 
-                <p>
-                    Now I think it might just mean continuing
-                    to change your mind about who you are.
-                </p>
+            <p>
+                There are versions of me that I haven't met yet.
+                Some are waiting quietly. Some are already here.
+            </p>
 
-                <div class="handwritten">
-                    maybe there is no finished version.
-                </div>
+            <p>
+                I don't think becoming has a final destination.
+                Maybe the point is simply to keep changing,
+                noticing, learning and making room for whatever
+                comes next.
+            </p>
 
+            <div class="handwritten">
+                — a note to myself
             </div>
 
         </div>
 
+    </div>
 
-        <!-- RIGHT PAGE -->
 
-        <div class="journal-page right-page">
+    <!-- RIGHT PAGE -->
 
-            <span class="page-number">
-                02 — 02
-            </span>
+    <div class="journal-page right-page">
 
-            <div class="page-content">
+        <div
+            class="page-number"
+            id="journalPageNumber"
+        >
+            01 — 02
+        </div>
 
-                <div class="journal-image-placeholder">
-                    IMAGE / MEMORY
-                </div>
+        <div class="page-content">
 
-                <p class="image-caption">
-                    Something I haven't figured out yet.
-                </p>
-
-                <p>
-                    There are still so many versions of myself
-                    I haven't met.
-                </p>
-
-                <p>
-                    And perhaps that's the nicest part.
-                </p>
-
+            <div class="journal-image-placeholder">
+                A PHOTOGRAPH WILL LIVE HERE
             </div>
 
+            <p class="image-caption">
+                Somewhere between who I was
+                and who I am becoming.
+            </p>
+
+            <p>
+                I want to remember that I don't have to
+                understand everything immediately.
+            </p>
+
+            <p>
+                Some things are allowed to remain unfinished.
+                Some questions are allowed to stay questions.
+            </p>
 
             <button
                 class="page-turn"
-                id="nextPage">
+                id="nextPage"
+                type="button"
+            >
                 TURN THE PAGE →
             </button>
 
@@ -119,14 +132,14 @@
     </div>
 
 
-    <div
-        class="journal-counter"
-        id="journalPageNumber">
-        01 — 02
-    </div>
+</div>
 
+<div class="journal-counter">
+    STILL BECOMING / PRIVATE EXHIBIT
 </div>
 ```
+
+</div>
 
 <div class="grain"></div>
 
