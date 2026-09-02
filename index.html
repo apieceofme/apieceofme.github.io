@@ -20,208 +20,6 @@
 
 <body>
 
-  <!-- =========================================================
-     RETRO CD PLAYER
-     ========================================================= -->
-
-<section class="music-installation" id="music">
-
-    <div class="music-installation-label">
-        <span>EXHIBIT 07</span>
-        <span>LISTENING ROOM</span>
-    </div>
-
-    <div class="cd-player-wrap">
-
-        <!-- LEFT: CD / MACHINE -->
-        <div class="cd-machine">
-
-            <div class="cd-machine-top">
-
-                <div class="machine-brand">
-                    <span>RITUL'S</span>
-                    <strong>DIGITAL MUSEUM</strong>
-                </div>
-
-                <div class="machine-light">
-                    <span></span>
-                    POWER
-                </div>
-
-            </div>
-
-            <div class="cd-window">
-
-                <div class="cd-inner-shadow"></div>
-
-                <button
-                    class="cd-disc-button"
-                    id="cdDiscButton"
-                    aria-label="Play or pause music"
-                    title="Play / Pause"
-                >
-                    <div class="cd-disc" id="cdDisc">
-
-                        <div class="cd-rings"></div>
-
-                        <div class="cd-label">
-                            <span>RS</span>
-                            <small>DIGITAL MUSEUM</small>
-                        </div>
-
-                        <div class="cd-hole"></div>
-
-                    </div>
-                </button>
-
-                <div class="cd-reflection"></div>
-
-            </div>
-
-            <div class="cd-machine-bottom">
-
-                <div class="cd-time">
-                    <span id="currentTime">00:00</span>
-                    <span>/</span>
-                    <span id="duration">00:00</span>
-                </div>
-
-                <div class="cd-progress">
-                    <input
-                        type="range"
-                        id="progressBar"
-                        min="0"
-                        max="100"
-                        value="0"
-                        step="0.1"
-                        aria-label="Song progress"
-                    >
-                </div>
-
-            </div>
-
-            <div class="cd-controls">
-
-                <button
-                    class="cd-control"
-                    id="prevTrack"
-                    aria-label="Previous track"
-                    title="Previous track"
-                >
-                    ◀◀
-                </button>
-
-                <button
-                    class="cd-control cd-play"
-                    id="playPause"
-                    aria-label="Play"
-                    title="Play / Pause"
-                >
-                    ▶
-                </button>
-
-                <button
-                    class="cd-control"
-                    id="nextTrack"
-                    aria-label="Next track"
-                    title="Next track"
-                >
-                    ▶▶
-                </button>
-
-                <div class="volume-control">
-
-                    <span>VOL</span>
-
-                    <input
-                        type="range"
-                        id="volumeControl"
-                        min="0"
-                        max="1"
-                        value="0.75"
-                        step="0.01"
-                        aria-label="Volume"
-                    >
-
-                </div>
-
-            </div>
-
-            <div class="cd-machine-footer">
-
-                <span>COMPACT DISC DIGITAL AUDIO</span>
-
-                <span class="machine-code">
-                    RM—07
-                </span>
-
-            </div>
-
-        </div>
-
-
-        <!-- RIGHT: TRACK INFORMATION -->
-        <div class="music-info">
-
-            <div class="music-kicker">
-                CURRENTLY PLAYING
-            </div>
-
-            <div class="music-display">
-
-                <div class="music-display-top">
-                    <span id="trackNumber">TRACK 01</span>
-                    <span id="playingStatus">STOPPED</span>
-                </div>
-
-                <h2 id="trackTitle">
-                    Your first song
-                </h2>
-
-                <p id="trackArtist">
-                    A song from the museum
-                </p>
-
-                <div class="music-line"></div>
-
-                <p class="music-note">
-                    Put on some headphones.<br>
-                    Stay here for a while.
-                </p>
-
-            </div>
-
-
-            <div class="track-list-heading">
-                <span>THE RECORD COLLECTION</span>
-                <span>SELECT A TRACK</span>
-            </div>
-
-            <div class="track-list" id="trackList">
-
-                <!-- JavaScript creates tracks here -->
-
-            </div>
-
-            <div class="music-footnote">
-                <span>PLAYING FROM THE ARCHIVE</span>
-                <span>VOL. 01</span>
-            </div>
-
-        </div>
-
-    </div>
-
-    <!-- Actual audio element -->
-    <audio
-        id="museumAudio"
-        preload="metadata"
-    ></audio>
-
-</section>
-
-</div>
-
 <div class="grain"></div>
 
 <header class="header">
@@ -347,56 +145,52 @@
 
     <!-- HERO INSTALLATION -->
 
-<div class="hero-installation">
+    <div class="hero-installation">
 
-    <div class="art-frame"
-         id="stillBecoming"
-         role="button"
-         tabindex="0"
-         aria-label="Open Still Becoming journal">
+        <div class="art-frame">
 
-        <div class="frame-top">
-            EXHIBIT A
-            <span>MIXED MEDIA · ONGOING</span>
+            <div class="frame-top">
+                EXHIBIT A
+                <span>MIXED MEDIA · ONGOING</span>
+            </div>
+
+            <div class="abstract-shape shape-one"></div>
+            <div class="abstract-shape shape-two"></div>
+            <div class="abstract-shape shape-three"></div>
+
+            <div class="frame-writing">
+                still
+                <br>
+                becoming
+            </div>
+
+            <div class="frame-bottom">
+                SELF, IN PROGRESS
+            </div>
+
         </div>
 
-        <div class="abstract-shape shape-one"></div>
-        <div class="abstract-shape shape-two"></div>
-        <div class="abstract-shape shape-three"></div>
 
-        <div class="frame-writing">
-            still
-            <br>
-            becoming
-        </div>
+        <div class="object-label">
 
-        <div class="frame-open-note">
-            OPEN EXHIBIT ↗
-        </div>
+            <span>FOUND OBJECT</span>
 
-        <div class="frame-bottom">
-            SELF, IN PROGRESS
+            <strong>
+                VERSION 01
+            </strong>
+
+            <small>
+                collected somewhere between
+                curiosity and chaos
+            </small>
+
         </div>
 
     </div>
 
 
-    <div class="object-label">
+    <div class="hero-footer">
 
-        <span>FOUND OBJECT</span>
-
-        <strong>
-            VERSION 01
-        </strong>
-
-        <small>
-            collected somewhere between
-            curiosity and chaos
-        </small>
-
-    </div>
-
-</div>
         <span>
             PLEASE TOUCH THE INTERNET
         </span>
@@ -1302,9 +1096,10 @@
         The museum is always collecting.
     </p>
 
-    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=ritulsharma282@gmail.com" target="_blank">
-    ritulsharma282@gmail.com ↗
-</a>
+    <a href="mailto:hello@apieceofme.github.io">
+        hello@apieceofme.github.io ↗
+    </a>
+
 
     <footer>
 
@@ -1324,110 +1119,6 @@
 
 </section>
 
-    <!-- =====================================================
-     STILL BECOMING JOURNAL
-===================================================== -->
-
-<div class="journal-overlay" id="journalOverlay">
-
-    <button class="journal-close" id="journalClose">
-        CLOSE ×
-    </button>
-
-    <div class="journal-label">
-        EXHIBIT A · STILL BECOMING
-    </div>
-
-
-    <div class="journal">
-
-        <div class="journal-page left-page">
-
-            <div class="page-number">
-                01
-            </div>
-
-            <div class="page-content">
-
-                <span class="page-small-title">
-                    A COLLECTION OF BECOMING
-                </span>
-
-                <h2>
-                    still<br>
-                    becoming.
-                </h2>
-
-                <p>
-                    I think I am still becoming the person
-                    I am supposed to be.
-                </p>
-
-                <p>
-                    Maybe there is no finished version.
-                    Maybe that was never the point.
-                </p>
-
-                <div class="handwritten">
-                    notes from somewhere<br>
-                    between who I was<br>
-                    and who I'm becoming.
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <div class="journal-page right-page">
-
-            <div class="page-number">
-                02
-            </div>
-
-            <div class="page-content">
-
-                <div class="journal-image-placeholder">
-                    <span>
-                        YOUR IMAGE
-                    </span>
-                </div>
-
-                <p class="image-caption">
-                    something I wanted to remember.
-                </p>
-
-                <p>
-                    There are little moments I don't want
-                    to lose.
-                </p>
-
-                <p>
-                    A thought written at 2 AM.
-                    A place I passed once.
-                    A photograph I almost deleted.
-                </p>
-
-            </div>
-
-            <button
-                class="page-turn next-page"
-                id="nextPage">
-                TURN PAGE →
-            </button>
-
-        </div>
-
-    </div>
-
-
-    <div class="journal-counter">
-        <span id="journalPageNumber">
-            01 — 02
-        </span>
-    </div>
-
-</div>
 
 </main>
 
