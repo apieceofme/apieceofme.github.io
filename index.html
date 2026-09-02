@@ -20,124 +20,205 @@
 
 <body>
 
-   <!-- =========================================================
-     STILL BECOMING JOURNAL
-========================================================= -->
+  <!-- =========================================================
+     RETRO CD PLAYER
+     ========================================================= -->
 
-<div
-    class="journal-overlay"
-    id="journalOverlay"
-    aria-hidden="true"
->
+<section class="music-installation" id="music">
 
-```
-<div class="journal-label">
-    PERSONAL ARCHIVE / 01
-</div>
+    <div class="music-installation-label">
+        <span>EXHIBIT 07</span>
+        <span>LISTENING ROOM</span>
+    </div>
 
-<button
-    class="journal-close"
-    id="journalClose"
-    type="button"
->
-    CLOSE ×
-</button>
+    <div class="cd-player-wrap">
 
+        <!-- LEFT: CD / MACHINE -->
+        <div class="cd-machine">
 
-<div class="journal" role="dialog" aria-modal="true">
+            <div class="cd-machine-top">
 
+                <div class="machine-brand">
+                    <span>RITUL'S</span>
+                    <strong>DIGITAL MUSEUM</strong>
+                </div>
 
-    <!-- LEFT PAGE -->
+                <div class="machine-light">
+                    <span></span>
+                    POWER
+                </div>
 
-    <div class="journal-page left-page">
-
-        <div class="page-number">
-            01 — 02
-        </div>
-
-        <div class="page-content">
-
-            <div class="page-small-title">
-                STILL BECOMING
             </div>
 
-            <h2>
-                I am still<br>
-                becoming.
-            </h2>
+            <div class="cd-window">
 
-            <p>
-                There are versions of me that I haven't met yet.
-                Some are waiting quietly. Some are already here.
-            </p>
+                <div class="cd-inner-shadow"></div>
 
-            <p>
-                I don't think becoming has a final destination.
-                Maybe the point is simply to keep changing,
-                noticing, learning and making room for whatever
-                comes next.
-            </p>
+                <button
+                    class="cd-disc-button"
+                    id="cdDiscButton"
+                    aria-label="Play or pause music"
+                    title="Play / Pause"
+                >
+                    <div class="cd-disc" id="cdDisc">
 
-            <div class="handwritten">
-                — a note to myself
+                        <div class="cd-rings"></div>
+
+                        <div class="cd-label">
+                            <span>RS</span>
+                            <small>DIGITAL MUSEUM</small>
+                        </div>
+
+                        <div class="cd-hole"></div>
+
+                    </div>
+                </button>
+
+                <div class="cd-reflection"></div>
+
+            </div>
+
+            <div class="cd-machine-bottom">
+
+                <div class="cd-time">
+                    <span id="currentTime">00:00</span>
+                    <span>/</span>
+                    <span id="duration">00:00</span>
+                </div>
+
+                <div class="cd-progress">
+                    <input
+                        type="range"
+                        id="progressBar"
+                        min="0"
+                        max="100"
+                        value="0"
+                        step="0.1"
+                        aria-label="Song progress"
+                    >
+                </div>
+
+            </div>
+
+            <div class="cd-controls">
+
+                <button
+                    class="cd-control"
+                    id="prevTrack"
+                    aria-label="Previous track"
+                    title="Previous track"
+                >
+                    ◀◀
+                </button>
+
+                <button
+                    class="cd-control cd-play"
+                    id="playPause"
+                    aria-label="Play"
+                    title="Play / Pause"
+                >
+                    ▶
+                </button>
+
+                <button
+                    class="cd-control"
+                    id="nextTrack"
+                    aria-label="Next track"
+                    title="Next track"
+                >
+                    ▶▶
+                </button>
+
+                <div class="volume-control">
+
+                    <span>VOL</span>
+
+                    <input
+                        type="range"
+                        id="volumeControl"
+                        min="0"
+                        max="1"
+                        value="0.75"
+                        step="0.01"
+                        aria-label="Volume"
+                    >
+
+                </div>
+
+            </div>
+
+            <div class="cd-machine-footer">
+
+                <span>COMPACT DISC DIGITAL AUDIO</span>
+
+                <span class="machine-code">
+                    RM—07
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- RIGHT: TRACK INFORMATION -->
+        <div class="music-info">
+
+            <div class="music-kicker">
+                CURRENTLY PLAYING
+            </div>
+
+            <div class="music-display">
+
+                <div class="music-display-top">
+                    <span id="trackNumber">TRACK 01</span>
+                    <span id="playingStatus">STOPPED</span>
+                </div>
+
+                <h2 id="trackTitle">
+                    Your first song
+                </h2>
+
+                <p id="trackArtist">
+                    A song from the museum
+                </p>
+
+                <div class="music-line"></div>
+
+                <p class="music-note">
+                    Put on some headphones.<br>
+                    Stay here for a while.
+                </p>
+
+            </div>
+
+
+            <div class="track-list-heading">
+                <span>THE RECORD COLLECTION</span>
+                <span>SELECT A TRACK</span>
+            </div>
+
+            <div class="track-list" id="trackList">
+
+                <!-- JavaScript creates tracks here -->
+
+            </div>
+
+            <div class="music-footnote">
+                <span>PLAYING FROM THE ARCHIVE</span>
+                <span>VOL. 01</span>
             </div>
 
         </div>
 
     </div>
 
+    <!-- Actual audio element -->
+    <audio
+        id="museumAudio"
+        preload="metadata"
+    ></audio>
 
-    <!-- RIGHT PAGE -->
-
-    <div class="journal-page right-page">
-
-        <div
-            class="page-number"
-            id="journalPageNumber"
-        >
-            01 — 02
-        </div>
-
-        <div class="page-content">
-
-            <div class="journal-image-placeholder">
-                A PHOTOGRAPH WILL LIVE HERE
-            </div>
-
-            <p class="image-caption">
-                Somewhere between who I was
-                and who I am becoming.
-            </p>
-
-            <p>
-                I want to remember that I don't have to
-                understand everything immediately.
-            </p>
-
-            <p>
-                Some things are allowed to remain unfinished.
-                Some questions are allowed to stay questions.
-            </p>
-
-            <button
-                class="page-turn"
-                id="nextPage"
-                type="button"
-            >
-                TURN THE PAGE →
-            </button>
-
-        </div>
-
-    </div>
-
-
-</div>
-
-<div class="journal-counter">
-    STILL BECOMING / PRIVATE EXHIBIT
-</div>
-```
+</section>
 
 </div>
 
